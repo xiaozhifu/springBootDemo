@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fxz.demo.dao.FilmGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.fxz.demo.entity.FilmGoods" >
+    <id column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="brand_id" property="brandId" jdbcType="INTEGER" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="front_price" property="frontPrice" jdbcType="DECIMAL" />
+    <result column="behind_price" property="behindPrice" jdbcType="DECIMAL" />
+    <result column="side_price" property="sidePrice" jdbcType="DECIMAL" />
+    <result column="behind_side_price" property="behindSidePrice" jdbcType="DECIMAL" />
+    <result column="position_str" property="positionStr" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    goods_id, brand_id, goods_name, front_price, behind_price, side_price, behind_side_price, 
+    position_str, sort, status
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from h_film_goods
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from h_film_goods
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.fxz.demo.entity.FilmGoods" >
+    insert into h_film_goods (goods_id, brand_id, goods_name, 
+      front_price, behind_price, side_price, 
+      behind_side_price, position_str, sort, 
+      status)
+    values (#{goodsId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, 
+      #{frontPrice,jdbcType=DECIMAL}, #{behindPrice,jdbcType=DECIMAL}, #{sidePrice,jdbcType=DECIMAL}, 
+      #{behindSidePrice,jdbcType=DECIMAL}, #{positionStr,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.fxz.demo.entity.FilmGoods" >
+    insert into h_film_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="brandId != null" >
+        brand_id,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="frontPrice != null" >
+        front_price,
+      </if>
+      <if test="behindPrice != null" >
+        behind_price,
+      </if>
+      <if test="sidePrice != null" >
+        side_price,
+      </if>
+      <if test="behindSidePrice != null" >
+        behind_side_price,
+      </if>
+      <if test="positionStr != null" >
+        position_str,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="frontPrice != null" >
+        #{frontPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="behindPrice != null" >
+        #{behindPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sidePrice != null" >
+        #{sidePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="behindSidePrice != null" >
+        #{behindSidePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="positionStr != null" >
+        #{positionStr,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.fxz.demo.entity.FilmGoods" >
+    update h_film_goods
+    <set >
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="frontPrice != null" >
+        front_price = #{frontPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="behindPrice != null" >
+        behind_price = #{behindPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sidePrice != null" >
+        side_price = #{sidePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="behindSidePrice != null" >
+        behind_side_price = #{behindSidePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="positionStr != null" >
+        position_str = #{positionStr,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.fxz.demo.entity.FilmGoods" >
+    update h_film_goods
+    set brand_id = #{brandId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      front_price = #{frontPrice,jdbcType=DECIMAL},
+      behind_price = #{behindPrice,jdbcType=DECIMAL},
+      side_price = #{sidePrice,jdbcType=DECIMAL},
+      behind_side_price = #{behindSidePrice,jdbcType=DECIMAL},
+      position_str = #{positionStr,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+
+  <select id="filmGoodsList" resultType="com.fxz.demo.entity.FilmGoods">
+    select * from h_film_goods
+  </select>
+</mapper>

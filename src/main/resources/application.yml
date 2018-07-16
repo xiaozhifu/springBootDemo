@@ -1,0 +1,41 @@
+server:
+  servlet:
+    context-path: /demo
+  port: 8888
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8
+    username: root
+    password: test
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x' FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+  jpa:
+    hibernate:
+      ddl-auto: update #新增数据库链接必备的参数
+
+mybatis:
+  mapper-locations: classpath*:com/fxz/demo/dao/**/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+student:
+  name: xiaozhi
+  sex: man
+  age: 26
