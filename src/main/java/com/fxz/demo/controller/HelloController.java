@@ -2,6 +2,7 @@ package com.fxz.demo.controller;
 
 import com.fxz.demo.entity.config.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,13 @@ public class HelloController {
     @RequestMapping("student")
     public String student(){
         return  "name:" + student.getName() + ",sex:" + student.getSex() + ",age:" + student.getAge();
+    }
+
+    @Value("${randomValue}")
+    private String randomValue;
+    @RequestMapping("/random")
+    public String random(){
+        return randomValue;
     }
 
 }

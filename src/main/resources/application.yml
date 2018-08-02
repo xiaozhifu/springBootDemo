@@ -39,3 +39,5 @@ student:
   name: xiaozhi
   sex: man
   age: 26
+
+randomValue: ${random.int}
