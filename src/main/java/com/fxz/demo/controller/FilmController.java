@@ -1,7 +1,5 @@
 package com.fxz.demo.controller;
 
-import com.fxz.demo.dao.FilmComboMapper;
-import com.fxz.demo.dao.FilmGoodsMapper;
 import com.fxz.demo.entity.FilmCombo;
 import com.fxz.demo.entity.FilmGoods;
 import com.fxz.demo.service.FilmService;

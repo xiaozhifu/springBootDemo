@@ -1,7 +1,7 @@
 package com.fxz.demo.service;
 
-import com.fxz.demo.dao.FilmComboMapper;
-import com.fxz.demo.dao.FilmGoodsMapper;
+import com.fxz.demo.dao.filmGoods.FilmComboMapper;
+import com.fxz.demo.dao.filmGoods.FilmGoodsMapper;
 import com.fxz.demo.entity.FilmCombo;
 import com.fxz.demo.entity.FilmGoods;
 import org.springframework.stereotype.Service;

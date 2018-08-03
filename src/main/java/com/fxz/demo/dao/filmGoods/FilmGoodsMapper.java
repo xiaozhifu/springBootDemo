@@ -1,4 +1,4 @@
-package com.fxz.demo.dao;
+package com.fxz.demo.dao.filmGoods;
 
 import com.fxz.demo.entity.FilmGoods;
 import org.apache.ibatis.annotations.Mapper;
