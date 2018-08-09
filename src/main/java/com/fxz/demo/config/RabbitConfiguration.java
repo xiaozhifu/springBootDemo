@@ -10,8 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfiguration {
 
-    final static String queueName = "hello";
-
     @Bean
     public Queue helloQueue() {
         return new Queue("hello");
@@ -64,39 +62,35 @@ public class RabbitConfiguration {
 
     /**
      * 将队列topic.message与exchange绑定，binding_key为topic.message,就是完全匹配
-     * @param queueMessage
-     * @param exchange
      * @return
      */
     @Bean
-    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
+    Binding bindingExchangeMessage() {
+        return BindingBuilder.bind(queueMessage()).to(exchange()).with("topic.message");
     }
 
     /**
      * 将队列topic.messages与exchange绑定，binding_key为topic.#,模糊匹配
-     * @param queueMessages
-     * @param exchange
      * @return
      */
     @Bean
-    Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
+    Binding bindingExchangeMessages() {
+        return BindingBuilder.bind(queueMessages()).to(exchange()).with("topic.#");
     }
 
     @Bean
-    Binding bindingExchangeA(Queue AMessage,FanoutExchange fanoutExchange) {
-        return BindingBuilder.bind(AMessage).to(fanoutExchange);
+    Binding bindingExchangeA() {
+        return BindingBuilder.bind(AMessage()).to(fanoutExchange());
     }
 
     @Bean
-    Binding bindingExchangeB(Queue BMessage, FanoutExchange fanoutExchange) {
-        return BindingBuilder.bind(BMessage).to(fanoutExchange);
+    Binding bindingExchangeB() {
+        return BindingBuilder.bind(BMessage()).to(fanoutExchange());
     }
 
     @Bean
-    Binding bindingExchangeC(Queue CMessage, FanoutExchange fanoutExchange) {
-        return BindingBuilder.bind(CMessage).to(fanoutExchange);
+    Binding bindingExchangeC() {
+        return BindingBuilder.bind(CMessage()).to(fanoutExchange());
     }
 
 }

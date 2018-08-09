@@ -1,5 +1,6 @@
 package com.fxz.demo.controller.rabbit;
 
+import com.fxz.demo.service.rabbit.CallBackSender;
 import com.fxz.demo.service.rabbit.HelloSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +18,17 @@ public class RabbitTest {
     @Autowired
     private HelloSender helloSender;
 
+    @Autowired
+    private CallBackSender callBackSender;
+
     @RequestMapping("/hello")
     public void hello() {
         helloSender.send();
+    }
+
+    @RequestMapping("/testCallback")
+    public void callback() {
+        callBackSender.send();
     }
 
 }
