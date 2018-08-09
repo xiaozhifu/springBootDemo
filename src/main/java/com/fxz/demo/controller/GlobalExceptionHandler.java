@@ -13,7 +13,7 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
-    @ResponseBody
+    @ResponseBody()
     public Map<String ,Object> returnError(){
         Map<String,Object> errorMap = new HashMap<>();
         errorMap.put("errorCode","500");

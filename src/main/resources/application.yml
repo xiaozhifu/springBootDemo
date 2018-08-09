@@ -2,8 +2,15 @@ server:
   servlet:
     context-path: /demo
   port: 8888
+  tomcat:
+    uri-encoding: UTF-8
 
 spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -29,6 +36,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update #新增数据库链接必备的参数
+  application:
+    name: springboot-rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
+    virtual-host: /
 
 mybatis:
   mapper-locations: classpath*:com/fxz/demo/dao/**/*.xml

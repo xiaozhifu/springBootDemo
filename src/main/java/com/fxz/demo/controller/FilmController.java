@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,9 @@ public class FilmController {
 
     @RequestMapping("/filmGoodsList")
     public List<FilmGoods> filmGoodsList(){
-        return filmService.filmGoodsList();
+        List<FilmGoods> filmGoods = new ArrayList<>();
+        filmGoods = filmService.filmGoodsList();
+        return filmGoods;
     }
 
 }
