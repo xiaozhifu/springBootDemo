@@ -21,7 +21,7 @@ public class MQPropConfig {
     private String userName;
     private String password;
     private String virtualHost;
-    private Boolean publisherConfirm;
+    private Boolean publisherConfirms;
     private int cacheSize;
     private String exDefault;
     private String exDelay;
@@ -34,7 +34,7 @@ public class MQPropConfig {
         connectionFactory.setPassword(this.password);
         connectionFactory.setVirtualHost(this.virtualHost);
         connectionFactory.setChannelCacheSize(this.cacheSize);
-        connectionFactory.setPublisherConfirms(this.publisherConfirm.booleanValue());
+        connectionFactory.setPublisherConfirms(this.publisherConfirms.booleanValue());
         return connectionFactory;
     }
 
@@ -79,8 +79,8 @@ public class MQPropConfig {
         return this.virtualHost;
     }
 
-    public Boolean getPublisherConfirm() {
-        return this.publisherConfirm;
+    public Boolean getPublisherConfirms() {
+        return this.publisherConfirms;
     }
 
     public int getCacheSize() {
@@ -119,8 +119,8 @@ public class MQPropConfig {
         this.virtualHost = virtualHost;
     }
 
-    public void setPublisherConfirm(Boolean publisherConfirm) {
-        this.publisherConfirm = publisherConfirm;
+    public void setPublisherConfirms(Boolean publisherConfirms) {
+        this.publisherConfirms = publisherConfirms;
     }
 
     public void setCacheSize(int cacheSize) {
@@ -197,8 +197,8 @@ public class MQPropConfig {
                     }
 
                     label86: {
-                        Boolean this$publisherConfirm = this.getPublisherConfirm();
-                        Boolean other$publisherConfirm = other.getPublisherConfirm();
+                        Boolean this$publisherConfirm = this.getPublisherConfirms();
+                        Boolean other$publisherConfirm = other.getPublisherConfirms();
                         if(this$publisherConfirm == null) {
                             if(other$publisherConfirm == null) {
                                 break label86;
@@ -270,7 +270,7 @@ public class MQPropConfig {
         result1 = result1 * 59 + ($password == null?43:$password.hashCode());
         String $virtualHost = this.getVirtualHost();
         result1 = result1 * 59 + ($virtualHost == null?43:$virtualHost.hashCode());
-        Boolean $publisherConfirm = this.getPublisherConfirm();
+        Boolean $publisherConfirm = this.getPublisherConfirms();
         result1 = result1 * 59 + ($publisherConfirm == null?43:$publisherConfirm.hashCode());
         result1 = result1 * 59 + this.getCacheSize();
         String $exDefault = this.getExDefault();
@@ -283,6 +283,6 @@ public class MQPropConfig {
     }
 
     public String toString() {
-        return "MQPropConfig(host=" + this.getHost() + ", port=" + this.getPort() + ", userName=" + this.getUserName() + ", password=" + this.getPassword() + ", virtualHost=" + this.getVirtualHost() + ", publisherConfirm=" + this.getPublisherConfirm() + ", cacheSize=" + this.getCacheSize() + ", exDefault=" + this.getExDefault() + ", exDelay=" + this.getExDelay() + ", delayTimeDefault=" + this.getDelayTimeDefault() + ")";
+        return "MQPropConfig(host=" + this.getHost() + ", port=" + this.getPort() + ", userName=" + this.getUserName() + ", password=" + this.getPassword() + ", virtualHost=" + this.getVirtualHost() + ", publisherConfirm=" + this.getPublisherConfirms() + ", cacheSize=" + this.getCacheSize() + ", exDefault=" + this.getExDefault() + ", exDelay=" + this.getExDelay() + ", delayTimeDefault=" + this.getDelayTimeDefault() + ")";
     }
 }
