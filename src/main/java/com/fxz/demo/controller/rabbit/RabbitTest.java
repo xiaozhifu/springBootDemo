@@ -1,9 +1,8 @@
 package com.fxz.demo.controller.rabbit;
 
-import com.fxz.demo.service.rabbit.CallBackSender;
-import com.fxz.demo.service.rabbit.HelloSender;
+import com.fxz.demo.rabbit.CallBackSender;
+import com.fxz.demo.rabbit.HelloSender;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

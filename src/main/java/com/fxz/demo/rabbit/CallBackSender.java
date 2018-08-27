@@ -1,4 +1,4 @@
-package com.fxz.demo.service.rabbit;
+package com.fxz.demo.rabbit;
 
 import java.util.UUID;
 
