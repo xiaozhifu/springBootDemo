@@ -36,10 +36,21 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- redis依赖 -->
 		<dependency>
-			<groupId>tk.mybatis</groupId>
-			<artifactId>mapper-spring-boot-starter</artifactId>
-			<version>1.2.4</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- 省略getter/setter -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 
 		<dependency>
@@ -78,6 +89,11 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper-spring-boot-starter</artifactId>
+			<version>1.2.4</version>
+		</dependency>
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -106,6 +122,7 @@
 			<version>1.2.31</version>
 		</dependency>
 
+		<!-- rabbitMQ -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>

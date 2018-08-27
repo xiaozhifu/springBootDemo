@@ -36,6 +36,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update #新增数据库链接必备的参数
+
   application:
     name: springboot-rabbitmq
   rabbitmq:
@@ -45,6 +46,31 @@ spring:
     password: guest
     publisher-confirms: true
     virtual-host: /
+    cache-size: 10
+    ex-default: amq.direct
+    ex-delay: delay_exchange
+    #延时队列默认延时时长,单位秒
+    delay-time-default: 3
+
+  #redis config, lettuce 方式
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1
+    lettuce:
+      # 连接超时时间（毫秒）
+      shutdown-timeout: 3000ms
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        # 连接池中的最大空闲连接
+        max-idle: 2
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    timeout: 5000
 
 mybatis:
   mapper-locations: classpath*:com/fxz/demo/dao/**/*.xml
