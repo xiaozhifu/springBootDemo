@@ -20,6 +20,9 @@ import javax.annotation.Resource;
 @Slf4j
 @Component
 public class Consumer {
+
+    private static final String queueName = "myQueue";
+
     @Resource
     private MQPropConfig mqPropConfig;
 
@@ -29,7 +32,7 @@ public class Consumer {
      */
     @Bean
     public Queue queueTechnicianBizEvent() {
-        return new Queue("", true); // 队列持久
+        return new Queue(queueName, true); // 队列持久
     }
 
     /**
@@ -39,7 +42,7 @@ public class Consumer {
      */
     @Bean
     public Binding bindingTechnicianBizEvent() {
-        return BindingBuilder.bind(queueTechnicianBizEvent()).to(mqPropConfig.defaultExchange()).with("");
+        return BindingBuilder.bind(queueTechnicianBizEvent()).to(mqPropConfig.defaultExchange()).with(queueName);
     }
 
     @Bean
