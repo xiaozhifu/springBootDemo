@@ -76,6 +76,7 @@ mybatis:
   mapper-locations: classpath*:com/fxz/demo/dao/**/*.xml
   configuration:
     mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 student:
   name: xiaozhi
